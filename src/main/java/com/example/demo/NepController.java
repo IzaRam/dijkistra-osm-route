@@ -26,6 +26,11 @@ public class NepController {
         return  (Nep2po4pgr) nepRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
+    @GetMapping("/source/{id}")
+    public Integer getSourceFromVertexId(@PathVariable Integer id) {
+        return nepRepository.findById(id).orElseThrow(NoSuchElementException::new).source;
+    }
+
     @GetMapping("all")
     public List<Nep2po4pgr> getAll() {
         return nepRepository.findAll();
